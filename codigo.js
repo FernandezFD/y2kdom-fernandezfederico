@@ -10,26 +10,26 @@ const carrito=[];
 const ropa = [
 
     {
-        nombre: "Campera 1",
+        nombre: "Campera1",
         precio: "$ 1000",
-        portada: src="../imagenes/campera1.jpg"
+        portada: "../imagenes/campera1.jpg",
     },
 
     {
-        nombre: "Campera 2",
+        nombre: "Campera2",
         precio: "$ 1000",
-        portada: src="../imagenes/campera2.jpg"
+        portada: "../imagenes/campera2.jpg",
     },
     {
-        nombre: "Campera 3",
+        nombre: "Campera3",
         precio: "$ 1000",
-        portada: src="../imagenes/campera3.jpg"
+        portada: "../imagenes/campera3.jpg",
     },
 
     {
-        nombre: "Campera 4",
+        nombre: "Campera4",
         precio: "$ 1000",
-        portada: src="../imagenes/campera4.jpg"
+        portada: "../imagenes/campera4.jpg",
     },
 
     
@@ -41,20 +41,25 @@ let cards=document.getElementById("galeria");
     card.className="card col-3 text-align-center";
     card.innerHTML=`
     <div class="card" style="width: 18rem;">
-    <img src= ${imagenProducto.portada} class="card-img-top" alt="...">
+    <img src= "${imagenProducto.portada}" class="card-img-top" alt="...">
             <h5 class="card-title">${imagenProducto.nombre}</h5>
             <p class="card-text">${imagenProducto.precio}</p>
-            <button id="miBoton" class="btn btn-primary">COMPRAR</button>
+            <button id="miBoton--${imagenProducto.nombre}" class="btn btn-primary">COMPRAR</button>
         </div>
     `;
+
     cards.append(card);
+
+    let miBoton = document.getElementById(`miBoton--${imagenProducto.nombre}`);
+
+    miBoton.addEventListener("click", (e) => {
+        e.preventDefault();
+        console.log("Agregaste el producto al carrito");
+        carrito.push(imagenProducto);
+        console.log(carrito);
+    })
+
 }
 
-let miBoton=document.getElementById("miBoton");
-
-miBoton.onclick = () => {
-    console.log("Agregaste el producto al carrito");
-    carrito.push(imagenProducto);
 
 
-}
