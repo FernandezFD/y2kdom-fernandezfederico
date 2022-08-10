@@ -29,7 +29,7 @@ const ropa = [
     {
         nombre: "Campera4",
         precio: "$ 1000",
-        portada: "../imagenes/campera4.jpg",
+        portada: "./imagenes/campera4.jpg",
     },
 
     
